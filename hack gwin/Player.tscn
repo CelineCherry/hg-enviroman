@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Player.gd" type="Script" id=2]
+[ext_resource path="res://Bullet.tscn" type="PackedScene" id=3]
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+script = ExtResource( 2 )
+bullet = ExtResource( 3 )
+
+[node name="Body" type="Sprite" parent="."]
+position = Vector2( 0.200001, -1.8 )
+texture = ExtResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( 0.200001, -1.8 )
+polygon = PoolVector2Array( 32, -32, 32, 32, -32, 32, -32, -32, 31, -32 )
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="gun" type="Sprite" parent="Node2D"]
+position = Vector2( 80, 2 )
+scale = Vector2( 1, 0.359375 )
+texture = ExtResource( 1 )
+
+[node name="Muzzle" type="Position2D" parent="Node2D/gun"]
+position = Vector2( 32, -2.78261 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = -19.8
+margin_top = 25.2
+margin_right = 20.2
+margin_bottom = 65.2
+text = "Player"
+__meta__ = {
+"_edit_use_anchors_": true
+}
